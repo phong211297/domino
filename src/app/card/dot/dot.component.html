@@ -1,0 +1,75 @@
+<div class="dots-container">
+    <div [ngSwitch]="dots">
+
+        <!-- One dot container -->
+        <div *ngSwitchCase="1">
+            <div class="one-dot-container">
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- Two dots container -->
+        <div *ngSwitchCase="2">
+            <div class="two-dots-container">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- Three dots container -->
+        <div *ngSwitchCase="3">
+            <div class="three-dots-container">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- Four dots container -->
+        <div *ngSwitchCase="4">
+            <div class="four-dots-container">
+                <div class="row">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <div class="row">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Five dots container -->
+        <div *ngSwitchCase="5">
+            <div class="five-dots-container">
+                <div class="row">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <span class="dot"></span>
+                <div class="row">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Six dots container -->
+        <div *ngSwitchCase="6">
+            <div class="six-dots-container">
+                <div class="row">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="row">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchDefault>output2</div>
+    </div>
+</div>
