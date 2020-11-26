@@ -1,0 +1,28 @@
+<!-- Player section -->
+<section class="player-container">
+  <app-card-list [cardList]="player1Cards" [cardMode]="'verticle'" [listMode]="'horizontal'"></app-card-list>
+</section>
+
+<!-- Main content section  -->
+<section class="main-container">
+
+  <!-- Main player section  -->
+  <div class="main-player">
+    <app-card-list [cardList]="player4Cards"></app-card-list>
+  </div>
+
+  <!-- Main field section  -->
+  <div class="main-field">
+
+  </div>
+
+  <!-- Main player section  -->
+  <div class="main-player">
+    <app-card-list [cardList]="player2Cards"></app-card-list>
+  </div>
+</section>
+
+<!-- Player section  -->
+<section class="player-container player-bottom">
+  <app-card-list [cardList]="player3Cards" [cardMode]="'verticle'" [listMode]="'horizontal'"></app-card-list>
+</section>

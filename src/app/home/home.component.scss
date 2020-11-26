@@ -1,0 +1,25 @@
+.player-container {
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+}
+
+.main-container {
+  display: flex;
+  height: 60vh;
+
+  .main-player {
+    flex: 0 0 auto;
+  }
+
+  .main-field {
+    flex: 1 1 70%;
+  }
+}
+
+.player-bottom {
+  app-card-list {
+    display: flex;
+    align-items: flex-end;
+  }
+}

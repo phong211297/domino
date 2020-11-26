@@ -1,10 +1,10 @@
-<div class="card-container">
+<div class="card-container" [class.verticle-row]="cardMode === 'verticle'">
     <div class="row">
         <!-- Card head -->
         <div class="card-container__head">
 
             <div class="card-container__head__inner">
-                <app-dot [dots]=1></app-dot>
+                <app-dot [dots]="card?.head"></app-dot>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
         <div class="card-container__tail">
 
             <div class="card-container__tail__inner">
-                <app-dot [dots]=6></app-dot>
+                <app-dot [dots]="card?.tail"></app-dot>
             </div>
         </div>
     </div>

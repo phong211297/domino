@@ -1,0 +1,5 @@
+<div class="card-list-container" [class.row]="listMode === 'horizontal'">
+  <div class="card-wrapper" [class.card-wrapper-horizontal]="listMode === 'horizontal'" *ngFor="let card of cardList">
+    <app-card [card]="card" [cardMode]="cardMode"></app-card>
+  </div>
+</div>

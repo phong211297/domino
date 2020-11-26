@@ -1,6 +1,5 @@
 .card-container {
   border: 0.5px solid black;
-  display: inline-block;
   width: 120px;
   height: 50px;
   border-radius: 6px;
@@ -36,4 +35,8 @@
       }
     }
   }
+}
+
+.verticle-row {
+  transform: rotate(90deg);
 }

@@ -1,22 +1,22 @@
-import { CardModule } from './card/card.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { HomeModule } from "./home/home.module";
+import { CardModule } from "./card/card.module";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CardListComponent } from './card-list/card-list.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { CardListModule } from "./card-list/card-list.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CardListComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule
+    CardModule,
+    CardListModule,
+    HomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
