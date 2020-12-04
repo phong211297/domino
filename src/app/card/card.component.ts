@@ -21,11 +21,11 @@ export class CardComponent implements OnInit {
   //#endregion
 
   //#region Constructor
-  public constructor() {}
+  public constructor() { }
 
   //#endregion
 
   //#region Methods
-  public ngOnInit(): void {}
+  public ngOnInit(): void { }
   //#endregion
 }

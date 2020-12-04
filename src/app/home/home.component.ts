@@ -10,7 +10,9 @@ import {
   tap,
 } from "rxjs/operators";
 import { Card } from "../models/card.model";
-import { CardService } from "../services/card.service";
+import { CardService } from "../services/card-manager.service";
+import { GameSetupService } from '../services/game-setup.service';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: "app-home",
@@ -21,7 +23,7 @@ export class HomeComponent implements OnInit {
   //#region Properties
 
   // List card
-  public listCard: Card[];
+  public listCard: Card[][];
 
   // Player 1 card
   public player1Cards: Card[];
@@ -34,33 +36,57 @@ export class HomeComponent implements OnInit {
 
   // Player 4 card
   public player4Cards: Card[];
+
+  // Public list card entry
+  public listCardEntry = [];
   //#endregion
 
   //#region Constructor
 
-  public constructor(protected cardService: CardService) {}
+  public constructor(protected cardService: CardService, protected gameSetupService: GameSetupService) {
+
+  }
 
   //#endregion
 
   //#region Methods
 
   public ngOnInit(): void {
-    this.listCard = this.cardService.shuffle(this.cardService.getCardList());
+    // Set up game
+    this.gameSetupService.setUpGame();
 
-    this.player1Cards = this.listCard.splice(0, 7);
-    this.player2Cards = this.listCard.splice(0, 7);
-    this.player3Cards = this.listCard.splice(0, 7);
-    this.player4Cards = this.listCard.splice(0, 7);
+    // Divine cards
+    this.listCard = this.gameSetupService.arrPlayerCards;
 
-    const subscription = of(1, 2, 3, 4, 5)
-      .pipe(takeWhile((ele) => ele > 3))
-      .subscribe(
-        (data) => console.log(data),
-        () => {},
-        () => {
-          console.log("Complete");
-        }
-      );
+    this.player1Cards = this.listCard[0];
+    this.player2Cards = this.listCard[1];
+    this.player3Cards = this.listCard[2];
+    this.player4Cards = this.listCard[3];
+
+    // Make a first move
+    const firstCardDispensed = this.gameSetupService.firstCardDispense();
+
+    this.listCardEntry.push(firstCardDispensed);
+
+  }
+
+  public drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+
+    console.log(this.listCardEntry);
+  }
+
+  public handleSelectedCard(card: Card): void {
+    this.listCardEntry.push(card);
+
+    return;
   }
   //#endregion
 }

@@ -1,4 +1,8 @@
-.card-wrapper-horizontal {
-  padding-top: 35px;
-  padding-bottom: 35px;
+.selected {
+  margin-top: -40px;
+}
+
+.card-list-container {
+  display: flex;
+  align-items: center;
 }

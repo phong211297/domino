@@ -1,5 +1,6 @@
 <div class="card-list-container" [class.row]="listMode === 'horizontal'">
-  <div class="card-wrapper" [class.card-wrapper-horizontal]="listMode === 'horizontal'" *ngFor="let card of cardList">
-    <app-card [card]="card" [cardMode]="cardMode"></app-card>
+  <div class="card-wrapper" [class.card-wrapper-horizontal]="listMode === 'horizontal'" *ngFor="let card of cardList"
+    [class.selected]="card === this.selectedCard" [attr.data-card]="card">
+    <app-card [card]="card" [cardMode]="getCardMode(card)" (click)="selectCardHandle(card)"></app-card>
   </div>
 </div>

@@ -10,7 +10,7 @@ export class CardService {
   //#endregion
 
   //#region Constructor
-  constructor() {}
+  constructor() { }
 
   //#endregion
 
@@ -23,6 +23,22 @@ export class CardService {
     for (let i = 0; i <= 6; i++) {
       for (let j = i; j <= 6; j++) {
         cardList.push(new Card(i, j));
+      }
+    }
+
+    return cardList;
+  }
+
+  // Get card list
+  public getDuplicatedCardList(): Card[] {
+    const cardList: Card[] = [];
+
+    for (let i = 0; i <= 6; i++) {
+      for (let j = i; j <= 6; j++) {
+
+        if (i === j) {
+          cardList.push(new Card(i, j));
+        }
       }
     }
 
@@ -49,5 +65,11 @@ export class CardService {
 
     return array;
   }
+
+  // Is duplicatd card
+  public isDuplicatedCard(card: Card): boolean {
+    return card.tail === card.head;
+  }
+
   //#endregion
 }

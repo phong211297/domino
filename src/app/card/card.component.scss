@@ -38,5 +38,20 @@
 }
 
 .verticle-row {
-  transform: rotate(90deg);
+  width: 50px;
+  height: 120px;
+
+  .row {
+    flex-direction: column;
+
+    .card-container__head {
+      padding-right: 0px;
+      padding-bottom: 5px;
+    }
+
+    .card-container__tail {
+      padding-left: 0px;
+      padding-top: 5px;
+    }
+  }
 }

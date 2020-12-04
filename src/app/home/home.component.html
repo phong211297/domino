@@ -1,6 +1,12 @@
 <!-- Player section -->
 <section class="player-container">
-  <app-card-list [cardList]="player1Cards" [cardMode]="'verticle'" [listMode]="'horizontal'"></app-card-list>
+  <div class="player-container__cards">
+    <app-card-list [cardList]="player1Cards" [cardMode]="'verticle'" [listMode]="'horizontal'"
+      [cdkDropListData]="player1Cards" [cdkDropListConnectedTo]="[mainField]" cdkDropList
+      #player1CardsTemplate="cdkDropList" [cdkDropListDisabled]="true">
+      >
+    </app-card-list>
+  </div>
 </section>
 
 <!-- Main content section  -->
@@ -8,21 +14,32 @@
 
   <!-- Main player section  -->
   <div class="main-player">
-    <app-card-list [cardList]="player4Cards"></app-card-list>
+    <app-card-list [cardList]="player4Cards" [cdkDropListData]="player4Cards" [cdkDropListConnectedTo]="[mainField]"
+      cdkDropList #player4CardsTemplate="cdkDropList"> [cdkDropListDisabled]="true"
+      ></app-card-list>
   </div>
 
   <!-- Main field section  -->
   <div class="main-field">
-
+    <app-card-list [listMode]="'horizontal'" class="list-cards-entry" [cardList]="listCardEntry"
+      #mainField="cdkDropList" [cdkDropListData]="listCardEntry" cdkDropList
+      [cdkDropListConnectedTo]="[player1CardsTemplate,player2CardsTemplate,player3CardsTemplate,player4CardsTemplate]"
+      (cdkDropListDropped)="drop($event)" [cdkDropListDisabled]="true" [isEntryList]="true"></app-card-list>
   </div>
 
   <!-- Main player section  -->
   <div class="main-player">
-    <app-card-list [cardList]="player2Cards"></app-card-list>
+    <app-card-list [cardList]="player2Cards" [cdkDropListData]="player2Cards" [cdkDropListConnectedTo]="[mainField]"
+      cdkDropList #player2CardsTemplate="cdkDropList" [cdkDropListDisabled]="true">
+    </app-card-list>
   </div>
 </section>
 
 <!-- Player section  -->
 <section class="player-container player-bottom">
-  <app-card-list [cardList]="player3Cards" [cardMode]="'verticle'" [listMode]="'horizontal'"></app-card-list>
+  <div class="player-container__cards">
+    <app-card-list [cardList]="player3Cards" [cardMode]="'verticle'" [listMode]="'horizontal'" [listActive]="true"
+      [cdkDropListData]="player3Cards" [cdkDropListConnectedTo]="[mainField]" cdkDropList
+      #player3CardsTemplate="cdkDropList" (emitSelectedCard)="handleSelectedCard($event)"></app-card-list>
+  </div>
 </section>

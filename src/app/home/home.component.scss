@@ -2,6 +2,17 @@
   display: flex;
   justify-content: center;
   height: 20vh;
+
+  .player-container__cards {
+    margin: 0 120px;
+    width: 100%;
+
+    app-card-list {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
 
 .main-container {
@@ -9,17 +20,52 @@
   height: 60vh;
 
   .main-player {
-    flex: 0 0 auto;
+    flex: 0 0 15%;
+    display: flex;
   }
 
   .main-field {
     flex: 1 1 70%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+
+    .list-cards-entry {
+      height: 200px;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  .main-player:nth-child(3) {
+    color: red;
+    justify-content: flex-end;
   }
 }
 
 .player-bottom {
-  app-card-list {
+  .player-container__cards {
     display: flex;
     align-items: flex-end;
+  }
+}
+
+:host ::ng-deep {
+  .card-list-container:not(.row) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .card-list-container {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .main-field {
+    .card-list-container {
+      justify-content: center;
+    }
   }
 }
